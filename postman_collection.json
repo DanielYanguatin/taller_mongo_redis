@@ -1,0 +1,105 @@
+{
+  "info": {
+    "description": "CRUD Vehiculos Flask+Mongo+Redis",
+    "name": "Taller Vehiculos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "host": ["localhost"],
+          "path": ["api", "health"],
+          "port": "5000",
+          "protocol": "http"
+        }
+      }
+    },
+    {
+      "name": "Listar todos",
+      "request": {
+        "method": "GET",
+        "url": {
+          "host": ["localhost"],
+          "path": ["api", "vehiculos"],
+          "port": "5000",
+          "protocol": "http"
+        }
+      }
+    },
+    {
+      "name": "Crear vehiculo",
+      "request": {
+        "body": {
+          "mode": "raw",
+          "options": { "raw": { "language": "json" } },
+          "raw": "{\n  \"vehiculo\": \"Taxi\",\n  \"categoria\": \"Terrestre (motorizado)\",\n  \"peso_toneladas\": 1.2,\n  \"descripcion\": \"Auto amarillo\"\n}"
+        },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "method": "POST",
+        "url": {
+          "host": ["localhost"],
+          "path": ["api", "vehiculos"],
+          "port": "5000",
+          "protocol": "http"
+        }
+      }
+    },
+    {
+      "name": "Consultar uno (cache)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "host": ["localhost"],
+          "path": ["api", "vehiculos", "Taxi"],
+          "port": "5000",
+          "protocol": "http"
+        }
+      }
+    },
+    {
+      "name": "Consultar semilla (no cacheable)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "host": ["localhost"],
+          "path": ["api", "vehiculos", "Barco"],
+          "port": "5000",
+          "protocol": "http"
+        }
+      }
+    },
+    {
+      "name": "Actualizar",
+      "request": {
+        "body": {
+          "mode": "raw",
+          "options": { "raw": { "language": "json" } },
+          "raw": "{\n  \"peso_toneladas\": 1.4,\n  \"descripcion\": \"Auto taxi\"\n}"
+        },
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "method": "PUT",
+        "url": {
+          "host": ["localhost"],
+          "path": ["api", "vehiculos", "Taxi"],
+          "port": "5000",
+          "protocol": "http"
+        }
+      }
+    },
+    {
+      "name": "Eliminar",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "host": ["localhost"],
+          "path": ["api", "vehiculos", "Taxi"],
+          "port": "5000",
+          "protocol": "http"
+        }
+      }
+    }
+  ]
+}
